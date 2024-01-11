@@ -8,22 +8,22 @@ services:
       - "389:389"
     networks:
       - mynet
-  nfs:
-    image: edtasixm06/nfs23:alpine
-    container_name: nfs.edt.org
-    hostname: nfs.edt.org
-    privileged: yes
+  dav23:
+    image: edtasixm06/dav23:git
+    container_name: dav.edt.org
+    hostname: dav.edt.org
+    privileged: true
     ports:
-      - "2049:2049"
+      - "80:80"
     volumes:
-      - "data-nfs:/export"
+      - "data-dav:/var/www/webdav"
     networks:
       - mynet 
   pam:
     image: edtasixm06/pam23:latest
     container_name: pam.edt.org
     hostname: pem.edt.org
-    privileged: yes
+    privileged: true
     networks:
       - mynet
 networks:
