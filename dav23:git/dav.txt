@@ -1,0 +1,17 @@
+mount.davfs -o username=unix01,uid=unix01,gid=100 http://localhost/webdav /mnt
+
+   <volume
+       user="*"
+       fstype="tmpfs"
+       mountpoint="~/mytmp"
+       options="size=100M" 
+     />
+
+  <volume
+     user="*"
+     fstype="davfs"
+     path="http://dav.edt.org/webdav"
+     mountpoint="~/mydav"
+     options="username=%(USER),uid=$(USERUID),gid=%(USERGID),file_mode=0770,dir_mode=0770"
+     />
+

@@ -29,5 +29,5 @@ services:
 networks:
   mynet:
 volumes:
-  data-nfs:
+  data-dav:
 
